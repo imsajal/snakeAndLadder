@@ -1,0 +1,65 @@
+PS - Roll with n number of dices and reach the top 
+
+Usecases ---
+
+N number of players and m number of dices
+A board is there and snake and ladder are there 
+Person who reaches top will win the game or game can be stopped when two players wins the game 
+
+
+Model-
+
+CELL
+JUMP jump;
+
+PLAYER
+String id;
+String name;
+
+JUMP
+int start;
+int end;
+
+PlayerTurn 
+Player player;
+int currentCell;
+
+
+
+Service-
+
+PlayerService
+Map<String, PLayer> players;
+void addPlayer(Player player);
+Player getPlayer(String id);
+
+DiceService
+
+int noOfDices;
+int rollDice();
+
+
+
+BoardService
+
+Cell board = new Cell[][];
+DiceService diceService;
+
+int playTurn();
+void createBoard(int x , int y, int noOfSnakes, int noOfLadder);
+void addSnakes(int noOfSnakes);
+void addLadders(int noOfLadders);
+boolean checkWinner(int currentPosition);
+
+
+
+SnakeAndLadder
+
+Queue<Turn> turn;
+int noOfWinners;
+
+SnakeAndLadder();
+initializeGame();
+startGame();
+
+
